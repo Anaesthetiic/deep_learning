@@ -42,7 +42,7 @@ class LinearClassifier(nn.Module):
             num_classes: int, number of classes
         """
         super().__init__()
-        self.linear = nn.linear( 3*h*w, num_classes)
+        self.linear = nn.Linear( 3*h*w, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -72,7 +72,7 @@ class MLPClassifier(nn.Module):
         """
         super().__init__()
         
-        self.network = nn.sequential(nn.linear(3*h*w, 256), nn.ReLu(), nn.Linear(256, num_classes))
+        self.network = nn.sequential(nn.Linear(3*h*w, 256), nn.ReLu(), nn.Linear(256, num_classes))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
