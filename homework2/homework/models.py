@@ -72,7 +72,7 @@ class MLPClassifier(nn.Module):
         """
         super().__init__()
         
-        self.network = nn.Sequential(nn.Linear(3*h*w, 256), nn.ReLu(), nn.Linear(256, num_classes))
+        self.network = nn.Sequential(nn.Linear(3*h*w, 256), nn.ReLU(), nn.Linear(256, num_classes))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
